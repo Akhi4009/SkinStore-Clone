@@ -1,8 +1,11 @@
 import React from 'react'
+import Skincare from './Skincare'
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+  <>
+  <Skincare/>
+  </>
   )
 }
 
