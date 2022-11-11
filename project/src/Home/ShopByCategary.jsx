@@ -1,6 +1,7 @@
 import { Grid,GridItem,Heading,Image,Text,Flex,Button, Icon} from '@chakra-ui/react'
 import React from 'react'
 import {AiOutlineShopping} from "react-icons/ai"
+import {Link} from "react-router-dom"
     
 let product=[
     {
@@ -101,17 +102,19 @@ const ShopByCategary = () => {
     <>
     <Heading size="lg" textAlign="center" fontSize="30px" m="30px">Shop by Category</Heading>
     <Grid templateColumns='repeat(6, 1fr)' gap="20px">
-        <GridItem>
+      <Link to="/skincare"> <GridItem>
        <Image src="https://static.thcdn.com/images/small/webp/widgets/121-us/01/Page-001-025201.png"/>
-        </GridItem>
+        </GridItem></Link> 
+        <Link to="/hair">
         <GridItem>
             <Image src="https://static.thcdn.com/images/small/webp/widgets/121-us/09/Page-002-025209.png"/>
         
-        </GridItem>
+        </GridItem></Link>
+        <Link to="/makeup">
         <GridItem>
             <Image src="https://static.thcdn.com/images/small/webp/widgets/121-us/17/Page-003-025217.png"/>
           
-        </GridItem>
+        </GridItem></Link>
         <GridItem>
             <Image src="https://static.thcdn.com/images/small/webp/widgets/121-us/21/Page-004-025221.png"/>
             

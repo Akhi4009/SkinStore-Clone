@@ -85,10 +85,10 @@ if(data.email===user.email&&user.password===data.password){
     </InputGroup>
     {!isError ? (
         <FormHelperText>
-          Enter the email you'd like to receive the newsletter on.
+          Enter the password .
         </FormHelperText>
       ) : (
-        <FormErrorMessage>Email is required.</FormErrorMessage>
+        <FormErrorMessage>Password is required.</FormErrorMessage>
       )}
   
       </FormControl>
