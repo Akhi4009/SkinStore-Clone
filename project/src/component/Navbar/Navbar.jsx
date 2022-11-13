@@ -1,5 +1,5 @@
-import React from 'react'
-import { Flex,Box,Heading ,Text, Input, Button, HStack,Icon, SimpleGrid} from '@chakra-ui/react'
+import React,{useContext} from 'react'
+import { Flex,Box,Heading ,Text, Input, Button, HStack,Icon, SimpleGrid,Grid} from '@chakra-ui/react'
 import {SearchIcon} from "@chakra-ui/icons"
 import {Link} from "react-router-dom"
 import {BsBasket3} from "react-icons/bs"
@@ -7,21 +7,25 @@ import {BsPerson} from "react-icons/bs"
 import {
     Popover,
     PopoverTrigger,
-    PopoverContent,
+    PopoverContent, 
    
     PopoverBody,
   PopoverHeader,
     PopoverArrow,
-    PopoverCloseButton,
+    PopoverCloseButton,Image
     
    
    
   } from '@chakra-ui/react'
+  import { CartContext } from '../Context/CartContext'
 const Navbar = () => {
+
+  const {state}=useContext(CartContext)
+  console.log(state)
     
   return (
    <>
-   <Flex justify="space-around" bgColor="transparent" mt={10}>
+   <Flex justify="space-around" bgColor="transparent" mt={10}  mb={10} >
     <Box>
 <Link to="/"> <Heading as='h3' size='lg' fontSize="3xl">
    SkinStore
@@ -76,8 +80,20 @@ const Navbar = () => {
     <PopoverCloseButton />
     <PopoverHeader>
      <Link to="/cart"><Button  onClick={onClose}>View Cart</Button></Link>  
+     <Text>{state.length} item in the cart</Text>
     </PopoverHeader>
-    <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+    <PopoverBody>
+      <Grid templateColumns="repeat(6,1fr)">
+        {
+state.map(item=>(
+  <Flex key={item.title}>
+    <Image src={item.image}/>
+    
+  </Flex>
+))
+        }
+      </Grid>
+    </PopoverBody>
   </PopoverContent>
   </>
     )}

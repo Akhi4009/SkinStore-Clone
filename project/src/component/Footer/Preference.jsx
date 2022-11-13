@@ -15,7 +15,7 @@ import {
     AccordionItem,
     AccordionButton,
     AccordionPanel,
-    AccordionIcon,
+  
   } from '@chakra-ui/react'
 import React from "react"
 import { AddIcon,MinusIcon } from '@chakra-ui/icons'
@@ -29,7 +29,7 @@ function Preference() {
       
   
         <Button mt={3} ref={btnRef} onClick={onOpen}>
-          Trigger modal
+          One Trust
         </Button>
   
         <Modal
