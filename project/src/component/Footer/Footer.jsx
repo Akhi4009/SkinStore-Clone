@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <>
   
-    <Grid templateColumns="repeat(2,1fr)" m={10}>
+    <Grid templateColumns={{base:"repeat(1,1fr)", md:"repeat(2,1fr)" }} m={10} gap={5}>
         <GridItem  >
             <Heading as="h4" size="xs">
             Sign up to our email list and receive 20% off your next order
@@ -65,7 +65,7 @@ const Footer = () => {
 
         </GridItem>
     </Grid>
-    <Grid templateColumns="repeat(4,1fr)" gap={5} m={10}>
+    <Grid templateColumns={{base:"repeat(1,1fr)", sm:"repeat(2,1fr)" ,lg:"repeat(4,1fr)"}} gap={5} m={10}>
         <GridItem>
             <hr  style={{marginBottom:"10px"}}/>
         <Heading as="h4" size="xs" mb={3}>
@@ -142,7 +142,7 @@ Pay securely with
         </Heading>
             <Flex alignItems="center"gap={3}>
               {Payment.map(item=>(
-                <Box key={Math.round(2)}>
+                <Box key={Math.random()}>
                     <Image src={item.image} w="100px"/>
                 </Box>
               ))}

@@ -1,7 +1,7 @@
 import { Grid,GridItem,Heading,Image,Text,Flex,Button, Icon} from '@chakra-ui/react'
 import React from 'react'
 import {AiOutlineShopping} from "react-icons/ai"
-import {Link} from "react-router-dom"
+import {Link, resolvePath,} from "react-router-dom"
     
 let product=[
     {
@@ -101,7 +101,7 @@ const ShopByCategary = () => {
   return (
     <>
     <Heading size="lg" textAlign="center" fontSize="30px" m="30px">Shop by Category</Heading>
-    <Grid templateColumns='repeat(6, 1fr)' gap="20px">
+    <Grid templateColumns={{base:"repeat(2,1fr)" , md:"repeat(3,1fr)",lg:"repeat(6,1fr)"}} gap="20px">
       <Link to="/skincare"> <GridItem>
        <Image src="https://static.thcdn.com/images/small/webp/widgets/121-us/01/Page-001-025201.png"/>
         </GridItem></Link> 
@@ -129,29 +129,29 @@ const ShopByCategary = () => {
        </GridItem>
     </Grid>
     <Heading size="lg" textAlign="center" fontSize="30px" m="30px">Trending Offers</Heading>
-    <Grid templateColumns="repeat(3,1fr)" gap={7} m="20px">
+    <Grid templateColumns={{base:"repeat(1,1fr)" , md:"repeat(2,1fr)", lg:"repeat(3,1fr)"}} gap={7} m="20px">
     {product.map(item=>(
         
         <GridItem key={item.title}>
-            <Flex direction="column" gap={5} alignItems="center" justifyContent="space-around">
+            <Flex direction="column" gap={5} alignItems="center" justifyContent="space-around" >
             <Image src={item.image} borderRadius="50%" w="80%"/>
             <Heading as="h6" size="sm">{item.cupon}</Heading>
             <Text>{item.title}</Text>
-            <Button>SHOP NOW</Button>
+         <Link to="/hair"> <Button>SHOP NOW</Button></Link> 
             </Flex>
            
         </GridItem>
     ))}
     </Grid>
     <Heading size="lg" textAlign="center" fontSize="30px" m="30px">What People Are Buying Right Now</Heading>
-    <Grid templateColumns="repeat(4,1fr)" gap={5} m="20px">
+    <Grid templateColumns={{base:"repeat(1,1fr)", sm:"repeat(2,1fr)" ,lg:"repeat(4,1fr)"}} gap={5}  m="20px" >
        {data.map(item=>(
         <GridItem key={item.title}>
             <Flex flexDirection="column" alignItems="center" gap={3}>
                 <Image src={item.image}/>
                 <Text>{item.title}</Text>
                 <Text>{item.price}</Text>
-                <Button bgColor="black" color="white"><Icon as={AiOutlineShopping}/>SHOP NOW</Button>
+              <Link to="/skincare"> <Button bgColor="black" color="white"><Icon as={AiOutlineShopping}/>SHOP NOW</Button></Link> 
             </Flex>
         </GridItem>
        ))}

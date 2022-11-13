@@ -52,10 +52,10 @@ const BlogAndBrand = () => {
    
     <Heading size="lg" textAlign="center" fontSize="30px" m="30px">Over On the Blog...</Heading>
 
-    <Grid templateColumns="repeat(3,.9fr)" gap={10} alignItems="center" m={10}>
+    <Grid templateColumns={{base:"repeat(1,1fr)", sm:"repeat(2,1fr)" ,lg:"repeat(3,1fr)"}}gap={10} alignItems="center" m={10}>
         {
             product.map(item=>(
-                <GridItem>
+                <GridItem key={item.Title}>
                     <Flex direction="column" alignItems="center" w="100%" gap={5}>
                         <Image src={item.image} borderRadius="50%" w="80%"/>
                         <Heading as="h6" size="sm" fontSize="20px">{item.Title}</Heading>

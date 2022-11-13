@@ -1,12 +1,12 @@
 import React from 'react'
-import {Flex,Box,Text, Icon} from "@chakra-ui/react"
+import {Grid,Box,Text, Icon,HStack} from "@chakra-ui/react"
 import {FaShippingFast} from "react-icons/fa"
 import {ImMobile} from "react-icons/im"
 const Banner1 = () => {
   return (
     <>
-    <Flex justifyContent="space-evenly" bgColor="#f2f2f2" p="20px" >
-        <Box>
+    <HStack spacing={3}  justifyContent="space-between" bgColor="#f2f2f2" p="20px" >
+        <Box >
             <Text><Icon as={FaShippingFast}/> FREE US Shipping Over $49</Text>
         </Box>
         <Box>
@@ -18,7 +18,7 @@ const Banner1 = () => {
         <Box>
             <Text><Icon as={ImMobile}/> Download Our App</Text>
         </Box>
-    </Flex>
+    </HStack>
     </>
   )
 }
