@@ -67,7 +67,7 @@ const Cart = () => {
     <Tfoot>
       <Tr>
         <Th size={{base:"xs",md:"md"}}>Final Price</Th>
-        <Th size={{base:"xs",md:"md"}}>${Math.round(state&&state.reduce((a,c)=>a+ Number(c.price),0))}</Th>
+        <Th size={{base:"xs",md:"md"}}>{Math.round(state&&state.reduce((a,c)=>a+ Number(c.price),0))}</Th>
       
       </Tr>
     </Tfoot>

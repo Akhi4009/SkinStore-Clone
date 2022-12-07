@@ -86,7 +86,7 @@ setLoading(false)
 <Text size="sm">{ele.title}</Text>
 <Text>{ele.cupon}</Text>
 <Text>{ele.review}</Text>
-<Heading as="h4" size="sm">{ele.price}</Heading>
+<Heading as="h4" size="sm">${ele.price}</Heading>
 <Button disabled={itemAlreadyExist(ele.title,state)}  onClick={()=>dispatch(addToCart(ele))}>QUICK BUY</Button>
     </Flex>
 </GridItem>

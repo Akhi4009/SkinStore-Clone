@@ -40,12 +40,14 @@ import { useNavigate } from 'react-router-dom'
       return
     }
    localStorage.setItem("user",JSON.stringify(data))
+
+   alert ("reister successfull")
   
     toast({
       title: 'Registar SuccessFully',
       description: "We've created your account for you.",
       status: 'success',
-      duration: 9000,
+      duration: 1000,
       isClosable: true,
     })
   
