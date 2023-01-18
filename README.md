@@ -3,16 +3,18 @@
 
 <h2>Description</h2>
 <p>AirGarage is an international website to find parking spots in United States of America.</p>
-<img src="https://i.postimg.cc/mgb754pS/Screenshot-51.png" alt="AirGarage" border="0">
-<img src="https://i.postimg.cc/vmTfGzsg/Screenshot-52.png" alt="AirGarage" border="0">
-<img src="https://i.postimg.cc/NGmTGFW4/Screenshot-53.png" alt="AirGarage" border="0">
-<img src="https://i.postimg.cc/DwB1VNt3/Screenshot-54.png" alt="AirGarage" border="0">
+<img src="https://i.ibb.co/j3qRyzW/2023-01-18.png" alt="2023-01-18" border="0">
+<img src="https://i.ibb.co/m6FxpMQ/2023-01-18-1.png" alt="2023-01-18-1" border="0">
+<img src="https://i.ibb.co/fxCFwxJ/2023-01-18-5.png" alt="2023-01-18-5" border="0">
+<img src="https://i.ibb.co/sRxD4dn/2023-01-18-7.png" alt="2023-01-18-7" border="0">
+<img src="https://i.ibb.co/R4m2VPv/2023-01-18-8.png" alt="2023-01-18-8" border="0">
 <h2>Tech Stacks used in this project</h2>
 <ul>
 <li>HTML</li>
 <li>CSS</li>
 <li>JavaScript</li>
 <li>React</li>
+<li>Chakra Ui</li>
 
 </ul>
 
