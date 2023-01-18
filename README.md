@@ -2,7 +2,7 @@
 <h1>SkinStore</h1>
 
 <h2>Description</h2>
-<p>AirGarage is an international website to find parking spots in United States of America.</p>
+<p>SkinStore is part of THG Holdings plc, a globally renowned end-to-end tech platform specializing in taking brands direct to consumers across the globe.</p>
 <img src="https://i.ibb.co/j3qRyzW/2023-01-18.png" alt="2023-01-18" border="0">
 <img src="https://i.ibb.co/m6FxpMQ/2023-01-18-1.png" alt="2023-01-18-1" border="0">
 <img src="https://i.ibb.co/fxCFwxJ/2023-01-18-5.png" alt="2023-01-18-5" border="0">
