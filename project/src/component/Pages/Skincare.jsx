@@ -9,8 +9,8 @@ import Footer from "../Footer/Footer"
 import { CartContext } from '../Context/CartContext'
 import {addToCart} from "../Context/action"  
 
-const getProduct=(sort,order,page=1)=>(
-    axios.get(`http://localhost:3000/product?_page=${page}&_limit=12&_sort=${sort}&_order=${order}`)
+const getProduct=(sort,page=1)=>(
+    axios.get(`http://localhost:8080/product?type=skincare&page=${page}&limit=12&sort=${sort}`)
 )
 const itemAlreadyExist=(title,cartItems)=>{
 
@@ -24,7 +24,7 @@ const Skincare = () => {
     const [data,setData]=useState([])
     const[loading,setLoading]=useState(false)
     const [sort,setSort]=useState("")
-    const [order,setOrder]=useState("")
+   
     const [page,setPage]=useState(1)
     const {state,dispatch}=useContext(CartContext)
     
@@ -34,28 +34,30 @@ const Skincare = () => {
 const {value}=e.target
 
 if(value==="PHTL"){
-setSort("price")
-setOrder("asc")
+setSort("-price")
+
 }else if(value==="PLTH"){
   setSort("price")
-setOrder("desc")
+
 }else if(value==="az"){
   setSort("title")
-  setOrder("asc")
+ 
 }else{
-  setOrder('')
+
   setSort('')
 }
      }
    
     useEffect(()=>{
       setLoading(true)
-getProduct(sort,order,page).then(res=>{
+getProduct(sort,page).then(res=>{
 setLoading(false)
-  setData(res.data)}
+   setData(res.data.data)
+ 
+}
   ).catch(err=>console.log(err))
 
-    },[sort,order,page])
+    },[sort,page])
     if(loading){
         return <Loading/>
       }
@@ -64,7 +66,7 @@ const handlePage=(val)=>{
   setPage(page=>page+val)
 }
 
-console.log(state)
+
      
 
   return (
@@ -76,8 +78,8 @@ console.log(state)
       
       <Select placeholder='Sort by' onChange={handleChange} >
         <option value="default">Default</option>
-  <option value='PHTL'>Price: Low to high</option>
-  <option value='PLTH'>Price: High to Low</option>
+  <option value='PLTH'>Price: Low to high</option>
+  <option value='PHTL'>Price: High to Low</option>
   <option value='az'>(Title)A-Z</option>
 </Select>
       </Flex>

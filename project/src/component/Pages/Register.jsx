@@ -10,6 +10,7 @@ import {
   Input,InputGroup,InputRightElement,Button
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
+import { register } from '../API/api'
 
 
 
@@ -34,29 +35,41 @@ import { useNavigate } from 'react-router-dom'
   const isError = data.name||data.email === ''
   const {name,email,password,mobile}=data
 
+  
+
   const handleRegistar=()=>{
+    console.log(data)
     if(name===''||email===''||password===''||mobile ===""){
       alert("fill all data")
       return
+    }else{
+      register(data)
+      .then(res=>{
+        console.log(res)
+        
+       toast({
+        title: 'Registar SuccessFully',
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      })
+        navigate("/login")
+       }).catch(err=>console.log(err))
+
+       toast({
+        title: 'Registar SuccessFully',
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      })
+    
+
     }
-   localStorage.setItem("user",JSON.stringify(data))
-
-   alert ("reister successfull")
-  
-    toast({
-      title: 'Registar SuccessFully',
-      description: "We've created your account for you.",
-      status: 'success',
-      duration: 1000,
-      isClosable: true,
-    })
-  
-  
-
-   navigate("/login")
-   
+    
   }
-
+ 
  
 
   return (

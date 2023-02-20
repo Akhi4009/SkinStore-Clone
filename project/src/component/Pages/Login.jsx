@@ -1,6 +1,6 @@
 import {Link,useNavigate} from "react-router-dom"
 import React,{useState,useContext} from 'react'
-import {Container,Heading,Box,Flex,Icon, HStack, VStack} from "@chakra-ui/react"
+import {Container,Heading,Box,Flex,Icon, HStack, VStack,useToast} from "@chakra-ui/react"
 import {BsFacebook} from "react-icons/bs"
 import {FcGoogle} from "react-icons/fc"
 import {
@@ -11,12 +11,14 @@ import {
   Input,InputGroup,InputRightElement,Button
 } from '@chakra-ui/react'
 import { AuthContext,action } from "../Context/AuthContext"
-const user=JSON.parse(localStorage.getItem("user"))||{}
-console.log(user)
+import { login } from "../API/api"
+
+
 
 const Login = () => {
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
+  const toast = useToast()
   const [data, setData] = useState({
 
     email:"",
@@ -24,7 +26,7 @@ const Login = () => {
   })
   const navigate=useNavigate()
   const {state,dispatch}=useContext(AuthContext)
-  console.log(state)
+  
 
   const handleInputChange = (e) => {
     const{name,value}=e.target
@@ -34,15 +36,36 @@ const Login = () => {
   const isError = data.email||data.password === ''
   const {email,password}=data
 
-  const handleLogin=()=>{
-if(data.email===user.email&&user.password===data.password){
-  dispatch(action)
-  alert("Login SuccessFully")
-  navigate("/")
 
-}else{
-  alert("Email or Password is wrong")
-}
+
+  const handleLogin=()=>{
+    if(email===''||password===''){
+      alert("fill all data")
+      return
+    }else{
+      console.log(data)
+      login(data)
+      .then(res=>{
+        console.log(res)
+        toast({
+          title: `${res.msg}`,
+         
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        })
+        if(res.msg=="login success"){
+          navigate("/")
+          dispatch(action)
+
+        }
+        
+       
+       }).catch(err=>console.log(err))
+       
+
+
+      }
   }
 
   return (

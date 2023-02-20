@@ -1,26 +1,9 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
+  
   "product": [
     {
      "image": "https://static.thcdn.com/images/xsmall/original//productimg/original/11370312-1044938634157826.jpg",
      "title": "EltaMD UV Clear Tinted Broad-Spectrum SPF46",
-     
      "cupon": "Select your Gift",
      "review": "10",
      "price":"41.00"

@@ -21,7 +21,7 @@ import {
 const Navbar = () => {
 
   const {state}=useContext(CartContext)
-  console.log(state)
+ 
     
   return (
    <>

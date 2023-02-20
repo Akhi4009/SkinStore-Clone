@@ -9,8 +9,8 @@ import { CartContext } from '../Context/CartContext'
 import {addToCart} from "../Context/action"  
 import Footer from '../Footer/Footer'
 
-const getProduct=(page,sort,order)=>(
-    axios.get(` http://localhost:3000/makeups?_page=${page}&_limit=12&_sort=${sort}&_order=${order}`)
+const getProduct=(page,sort)=>(
+    axios.get(`http://localhost:8080/product?type=makeup&page=${page}&limit=12&sort=${sort}&`)
 )
 const itemAlreadyExist=(title,cartItems)=>{
 
@@ -26,7 +26,7 @@ const Makeup = () => {
     const [data,setData]=useState([])
     const[loading,setLoading]=useState(false)
     const [sort,setSort]=useState("")
-    const [order,setOrder]=useState("")
+   
     const [page,setPage]=useState(1)
     const {state,dispatch}=useContext(CartContext)
 
@@ -34,33 +34,34 @@ const Makeup = () => {
       const {value}=e.target
       
       if(value==="PHTL"){
-      setSort("price")
-      setOrder("asc")
+      setSort("-price")
+     
       }else if(value==="PLTH"){
         setSort("price")
-      setOrder("desc")
+    
       }else if(value==="az"){
         setSort("title")
-        setOrder("asc")
+    
       }else{
-        setOrder('')
+       
         setSort('')
       }
            }
     useEffect(()=>{
       setLoading(true)
-getProduct(page,sort,order).then(res=>{
+getProduct(page,sort).then(res=>{
 setLoading(false)
-  setData(res.data)}
+  setData(res.data.data)
+console.log(res)}
   ).catch(err=>console.log(err))
 
-    },[page,sort,order])
+    },[page,sort])
 
     const handlePage=(val)=>{
       setPage(page=>page+val)
     }
 
-    console.log(data)
+   
     if(loading){
       return <Loading/>
     }
@@ -73,8 +74,8 @@ setLoading(false)
       
       <Select placeholder='Sort by' onChange={handleChange} >
         <option value="default">Default</option>
-  <option value='PHTL'>Price: Low to high</option>
-  <option value='PLTH'>Price: High to Low</option>
+  <option value='PLTH'>Price: Low to high</option>
+  <option value='PHTL'>Price: High to Low</option>
   <option value='az'>(Title)A-Z</option>
 </Select>
       </Flex>
