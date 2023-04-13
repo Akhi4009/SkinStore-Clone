@@ -1,11 +1,11 @@
 export const addToCart=(value)=>({
-    type:"add_to_cart",
+    type:"cart_data",
     payload:value
 })
-export const removeFromCart=(title)=>(
+export const dataChange=()=>(
 {
-    type:"remove_from_cart" ,
-    payload:title
+    type:"data_change" ,
+   
 }
 )
 export const checkout=()=>({

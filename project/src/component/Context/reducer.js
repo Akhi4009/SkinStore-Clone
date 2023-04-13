@@ -1,10 +1,11 @@
 export const reducer=(state,action)=>{
+   
     switch(action.type){
-        case ("add_to_cart"):
-            return [...state,action.payload];
-            case ("remove_from_cart"):{
-                const cartAfterRemoval=state.filter(item=>item.title!==action.payload)
-                return cartAfterRemoval
+        case ("cart_data"):
+            return {...state,data:action.payload};
+            case ("data_change"):{
+                
+                return {...state,}
             };
             case ("checkout"):{
                 return []

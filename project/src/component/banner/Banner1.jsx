@@ -5,7 +5,7 @@ import {ImMobile} from "react-icons/im"
 const Banner1 = () => {
   return (
     <>
-    <HStack spacing={3}  justifyContent="space-between" bgColor="#f2f2f2" p="20px" >
+    <HStack spacing={3}  justifyContent="space-between" bgColor="#f2f2f2" p="20px" zIndex={0} >
         <Box >
             <Text><Icon as={FaShippingFast}/> FREE US Shipping Over $49</Text>
         </Box>

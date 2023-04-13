@@ -10,8 +10,8 @@ import {
   FormHelperText,
   Input,InputGroup,InputRightElement,Button
 } from '@chakra-ui/react'
-import { AuthContext,action } from "../Context/AuthContext"
-import { login } from "../API/api"
+import { AuthContext,action } from "../component/Context/AuthContext"
+import { login } from "../component/API/api"
 
 
 
@@ -46,7 +46,7 @@ const Login = () => {
       console.log(data)
       login(data)
       .then(res=>{
-        console.log(res)
+        
         toast({
           title: `${res.msg}`,
          

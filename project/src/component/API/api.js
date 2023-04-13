@@ -21,5 +21,26 @@ const login=(data)=>{
    
 }
 
+const addData=(data)=>{
+return fetch("http://localhost:8080/card/add",{
+    method:"POST",
+    headers:{
+      "Content-type":"application/json"
+    },
+    body:JSON.stringify(data)
+  }).then(res=>res.json())
+  
+}
 
-export {register,login}
+// const getData=()=>{
+//   return fetch("http://localhost:8080/card/add",{
+//       method:"GET",
+//       headers:{
+//         "Content-type":"application/json"
+//       },
+//       body:JSON.stringify(data)
+//     }).then(res=>res.json())
+    
+//   }
+
+export {register,login,addData}

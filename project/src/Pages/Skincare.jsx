@@ -1,14 +1,15 @@
 import React,{useState,useEffect,useContext} from 'react'
 import axios from "axios"
 import {Grid, GridItem,Flex,Image,Text,Button,Heading,Select } from "@chakra-ui/react"
-import Loading from '../../Home/Loading'
-import Banner1 from '../banner/Banner1'
-import Banner2 from '../banner/Banner2'
-import Pagination from '../Navbar/Pagination'
-import Footer from "../Footer/Footer"
-import { CartContext } from '../Context/CartContext'
-import {addToCart} from "../Context/action"  
 
+import Loading from "../component/../Home/Loading"
+import Banner1 from '../component/banner/Banner1'
+import Banner2 from '../component/banner/Banner2'
+import Pagination from "../component/Navbar/Pagination"
+import { CartContext } from "../component/Context/CartContext"
+import {addToCart} from "../component/Context/action"  
+import Footer from "../component/Footer/Footer"
+import ProductItem from  "../component/Product/ProductItem"
 const getProduct=(sort,page=1)=>(
     axios.get(`http://localhost:8080/product?type=skincare&page=${page}&limit=12&sort=${sort}`)
 )
@@ -83,17 +84,10 @@ const handlePage=(val)=>{
   <option value='az'>(Title)A-Z</option>
 </Select>
       </Flex>
-            <Grid templateColumns={{ base:"repeat(1,1fr)",md:"repeat(2,1fr)",lg:"repeat(3,1fr)"}} m={5} >
+            <Grid templateColumns={{ base:"repeat(1,1fr)",md:"repeat(2,1fr)",lg:"repeat(3,.8fr)"}}  gap={10} m={{base:"30px",md:"20px"}}  >
             {data&&data.map(ele=>(
-<GridItem key={ele.title}>
-    <Flex direction="column" alignItems="center" gap={2}>
-<Image src={ele.image} alt={ele.title}/>
-<Text size="sm">{ele.title}</Text>
-<Text>{ele.cupon}</Text>
-<Text>{ele.review}</Text>
-<Heading as="h4" size="sm">${ele.price}</Heading>
-<Button disabled={itemAlreadyExist(ele.title,state)} onClick={()=>dispatch(addToCart(ele))}>QUICK BUY</Button>
-    </Flex>
+<GridItem key={ele._id} alignContent="center">
+<ProductItem ele={ele}/>
 </GridItem>
             ))}
             </Grid>
