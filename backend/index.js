@@ -2,6 +2,7 @@ const express=require("express")
 const connection=require('./db')
 const userRouter=require("./routes/user.route")
 const productRouter=require("./routes/product.route")
+const cardRouter=require("./routes/card.route")
 const cors=require('cors')
 
 const app=express()
@@ -14,6 +15,7 @@ app.get("/",(req,res)=>{
 })
 app.use("/user",userRouter)
 app.use("/product",productRouter)
+app.use("/card",cardRouter)
 
 
 
